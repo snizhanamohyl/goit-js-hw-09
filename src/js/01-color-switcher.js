@@ -1,30 +1,33 @@
-// шо зі стилями???
-
 const refs = {
   body: document.querySelector('body'),
   startBtn: document.querySelector('button[data-start]'),
   stopBtn: document.querySelector('button[data-stop]'),
 };
 
-let isInterval = false;
 let intervalId;
+
+refs.stopBtn.disabled = true;
 
 refs.startBtn.addEventListener('click', onStartBtnClick);
 refs.stopBtn.addEventListener('click', onStopBtnClick);
 
 function onStartBtnClick() {
-  if (!isInterval) {
+  if (!refs.startBtn.disabled) {
     changeBodyBgColor();
 
     intervalId = setInterval(changeBodyBgColor, 1000);
-    isInterval = true;
+
+    refs.startBtn.disabled = true;
+    refs.stopBtn.disabled = false;
   }
 }
 
 function onStopBtnClick() {
-  if (isInterval) {
+  if (!refs.stopBtn.disabled) {
     clearInterval(intervalId);
-    isInterval = false;
+
+    refs.stopBtn.disabled = true;
+    refs.startBtn.disabled = false;
   }
 }
 

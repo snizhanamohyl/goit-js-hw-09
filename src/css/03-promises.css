@@ -1,0 +1,19 @@
+label {
+    display: flex;
+    flex-direction: column;
+    margin-right: 15px;
+}
+
+input {
+    padding: 5px;
+}
+
+form {
+    display: flex;
+    align-items: end;
+}
+
+button {
+    height: fit-content;
+    padding: 5px 10px;
+}
