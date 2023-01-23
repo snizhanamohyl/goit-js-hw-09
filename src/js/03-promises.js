@@ -31,7 +31,7 @@ function onformSubmit(event) {
 function createPromise(position, delay) {
   const shouldResolve = Math.random() > 0.3;
 
-  return (promise = new Promise((resolve, reject) => {
+  return new Promise((resolve, reject) => {
     setTimeout(() => {
       if (shouldResolve) {
         resolve(`✅ Fulfilled promise ${position} in ${delay}ms`);
@@ -39,5 +39,5 @@ function createPromise(position, delay) {
         reject(`❌ Rejected promise ${position} in ${delay}ms`);
       }
     }, delay);
-  }));
+  });
 }
